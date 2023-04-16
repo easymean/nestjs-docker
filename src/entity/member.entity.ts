@@ -1,12 +1,22 @@
-import { Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
+@Entity('member')
 export class Member {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn({
+    type: 'bigint',
+  })
   id: number;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 45,
+    nullable: false,
+  })
   username: string;
 
-  @Column({ default: true })
+  @Column({
+    type: 'boolean',
+    default: true,
+  })
   isActive: boolean;
 }
